@@ -161,19 +161,22 @@ app.post('/api/iot-data', (req, res) => {
     res.json({ success: true, entry: newEntry });
 });
 
-// WebSocket Server for real-time updates
-const wss = new WebSocket.Server({ port: WS_PORT });
-const clients = new Set();
+// WebSocket Server for real-time updates (disabled on Vercel)
+let clients = new Set();
 
-wss.on('connection', (ws) => {
-    clients.add(ws);
-    console.log('WebSocket client connected');
+if (process.env.NODE_ENV !== 'production') {
+    const wss = new WebSocket.Server({ port: WS_PORT });
 
-    ws.on('close', () => {
-        clients.delete(ws);
-        console.log('WebSocket client disconnected');
+    wss.on('connection', (ws) => {
+        clients.add(ws);
+        console.log('WebSocket client connected');
+
+        ws.on('close', () => {
+            clients.delete(ws);
+            console.log('WebSocket client disconnected');
+        });
     });
-});
+}
 
 function broadcastUpdate() {
     const message = JSON.stringify({ type: 'dataUpdate', data: healthData });
@@ -184,11 +187,16 @@ function broadcastUpdate() {
     });
 }
 
-// Start servers
-const server = app.listen(PORT, '0.0.0.0', () => {
-    console.log(`HTTP Server is running on http://localhost:${PORT}`);
-    console.log(`WebSocket Server is running on ws://localhost:${WS_PORT}`);
-}).on('error', (err) => {
-    console.error('Failed to start HTTP server:', err);
-    process.exit(1);
-});
+// Export the app for Vercel
+module.exports = app;
+
+// For local development, start the server
+if (require.main === module) {
+    const server = app.listen(PORT, '0.0.0.0', () => {
+        console.log(`HTTP Server is running on http://localhost:${PORT}`);
+        console.log(`WebSocket Server is running on ws://localhost:${WS_PORT}`);
+    }).on('error', (err) => {
+        console.error('Failed to start HTTP server:', err);
+        process.exit(1);
+    });
+}
