@@ -40,3 +40,4 @@ The server will start on:
 - `/profile` - User profile
 - `/add` - Add health data
 - `/api/iot-data` - IoT device data endpoint# smart-health-tracking-management-system
+# smart-health-tracking-management-system
