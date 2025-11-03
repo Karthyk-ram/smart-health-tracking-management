@@ -187,16 +187,11 @@ function broadcastUpdate() {
     });
 }
 
-// Export the app for Vercel
-module.exports = app;
-
-// For local development, start the server
-if (require.main === module) {
-    const server = app.listen(PORT, '0.0.0.0', () => {
-        console.log(`HTTP Server is running on http://localhost:${PORT}`);
-        console.log(`WebSocket Server is running on ws://localhost:${WS_PORT}`);
-    }).on('error', (err) => {
-        console.error('Failed to start HTTP server:', err);
-        process.exit(1);
-    });
-}
+// Start servers
+const server = app.listen(PORT, '0.0.0.0', () => {
+    console.log(`HTTP Server is running on http://localhost:${PORT}`);
+    console.log(`WebSocket Server is running on ws://localhost:${WS_PORT}`);
+}).on('error', (err) => {
+    console.error('Failed to start HTTP server:', err);
+    process.exit(1);
+});
