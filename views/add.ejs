@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Health Entry</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Add New Health Entry</h1>
+            <p>Log your daily health metrics.</p>
+        </div>
+        <form action="/add" method="POST">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" step="0.1" required>
+
+            <label for="bloodPressure">Blood Pressure (e.g., 120/80):</label>
+            <input type="text" id="bloodPressure" name="bloodPressure" required>
+
+            <label for="heartRate">Heart Rate (bpm):</label>
+            <input type="number" id="heartRate" name="heartRate" required>
+
+            <label for="steps">Steps:</label>
+            <input type="number" id="steps" name="steps" required>
+
+            <label for="sleepHours">Sleep Hours:</label>
+            <input type="number" id="sleepHours" name="sleepHours" step="0.1" required>
+
+            <label for="spO2">SpO2 (%):</label>
+            <input type="number" id="spO2" name="spO2" step="0.1" required>
+
+            <label for="temperature">Temperature (°C):</label>
+            <input type="number" id="temperature" name="temperature" step="0.1" required>
+
+            <button type="submit" class="btn primary">Add Entry</button>
+        </form>
+        <a href="/" class="btn secondary">Back to Home</a>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar">
+        <a href="/" class="nav-item">
+            <i class="fas fa-home nav-icon"></i>
+            Home
+        </a>
+        <a href="/monitor" class="nav-item">
+            <i class="fas fa-chart-line nav-icon"></i>
+            Monitor
+        </a>
+        <a href="/appointments" class="nav-item">
+            <i class="fas fa-calendar-alt nav-icon"></i>
+            Appointments
+        </a>
+        <a href="/profile" class="nav-item">
+            <i class="fas fa-user nav-icon"></i>
+            Profile
+        </a>
+    </nav>
+</body>
+</html>

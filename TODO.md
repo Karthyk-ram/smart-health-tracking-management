@@ -1,0 +1,20 @@
+- [x] Update body background and text colors to dark theme
+- [x] Update header styles for dark theme
+- [x] Update dashboard and stat-cards backgrounds and colors
+- [x] Update button styles (primary to green, secondary to dark)
+- [x] Update health-data and table styles
+- [x] Update form styles
+- [x] Redesign UI to Instagram-like with profile, feed, navbar (Home, Monitor, Appointments, Profile)
+- [x] Add bottom navigation bar to all pages
+- [x] Update index.ejs to feed layout (health entries as post cards)
+- [x] Add Monitor route/view (charts dashboard placeholder)
+- [x] Add Appointments route/view (placeholder)
+- [x] Add Profile route/view (placeholder)
+- [x] Update add.ejs and edit.ejs with navbar
+- [x] Update styles.css for mobile-first responsive design, feed cards, navbar
+- [x] Implement full Appointments functionality (schedule, view, cancel)
+- [x] Implement full Profile functionality (edit info, theme toggle, stats)
+- [x] Add in-memory storage for appointments and user profile
+- [x] Update server.js with appointment and profile routes
+- [x] Add CSS styles for appointments and profile pages
+- [x] Test all features: health tracking, appointments, profile management
