@@ -7,6 +7,9 @@ This repository contains the full Smart Health Tracking project (frontend, backe
 - `smart-health-tracker/` — legacy Express/EJS app (server.js and views)
 
 ## Quick start
+**###Link**:
+https://unbeautifully-brainiest-nixon.ngrok-free.dev/ 
+1. open link and press on visit site 
 
 ### 1. Frontend
 
